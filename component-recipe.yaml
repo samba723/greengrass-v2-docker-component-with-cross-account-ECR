@@ -1,0 +1,20 @@
+---
+RecipeFormatVersion: '2020-01-25'
+ComponentName: DockerComponent.CrossAccount.ECR
+ComponentVersion: '1.0.0'
+ComponentDescription: 'docker component with sample applicaiton deployment using cross account ECR'
+ComponentPublisher: samba723
+ComponentDependencies:
+  aws.greengrass.DockerApplicationManager:
+    VersionRequirement: ">=2.0.8 <2.1.0"
+    DependencyType: "HARD"
+  aws.greengrass.TokenExchangeService:
+    VersionRequirement: ">=2.0.3 <2.1.0"
+    DependencyType: "HARD"
+Manifests:
+  - Platform:
+      os: linux
+    Lifecycle:
+        Run: docker run --publish 8000:5000 --rm 0987654321.dkr.ecr.us-east-1.amazonaws.com/kumo-article:latest
+    Artifacts:
+      - URI: "docker:0987654321.dkr.ecr.us-east-1.amazonaws.com/kumo-article:latest"

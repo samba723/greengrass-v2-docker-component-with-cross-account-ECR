@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+        "Sid": "AllowPull",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": [
+            "arn:aws:iam::1234567890:root",
+            "arn:aws:iam::1234567890:role/GreengrassV2TokenExchangeRole"
+            ]
+        },
+        "Action": [
+            "ecr:BatchGetImage",
+            "ecr:GetDownloadUrlForLayer"
+        ]
+        }
+    ]
+}
